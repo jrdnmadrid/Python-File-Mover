@@ -16,7 +16,7 @@ def load_gui (self):
     description.config(wraplength = 340)
 
     #Source file path field
-    sourceField = ttk.Entry(self.master, width = 50, textvariable = self.master.var)
+    sourceField = ttk.Entry(self.master, width = 50, textvariable = self.src)
     sourceField.grid(row = 1, column = 0, columnspan = 2, padx=5, pady=5)
     sourceField.insert(0, "Source Folder")
     sourceField.state(['readonly'])
@@ -24,10 +24,10 @@ def load_gui (self):
     #Source Button
     sourceButton = ttk.Button(self.master, text = 'Browse Src')
     sourceButton.grid(row = 1, column = 2, padx=5)
-    sourceButton.config(command = lambda: FileMover_functions.sourceCall(self.master.var))
+    sourceButton.config(command = lambda: FileMover_functions.sourceCall(self))
 
     #Destination file path field
-    destinationField = ttk.Entry(self.master, width = 50, textvariable= self.master.var1)
+    destinationField = ttk.Entry(self.master, width = 50, textvariable= self.dst)
     destinationField.grid(row = 2, column = 0, columnspan = 2, padx=5, pady=5)
     destinationField.insert(0, "Destination Folder")
     destinationField.state(['readonly'])
@@ -35,7 +35,7 @@ def load_gui (self):
     #Destination Button
     destinationButton = ttk.Button(self.master, text = 'Browse Dst')
     destinationButton.grid(row = 2, column = 2, padx=5)
-    destinationButton.config(command = lambda: FileMover_functions.destinationCall(self.master.var1))
+    destinationButton.config(command = lambda: FileMover_functions.destinationCall(self))
 
     #Move Button
     moveButton = ttk.Button(self.master, text = 'Check Files')

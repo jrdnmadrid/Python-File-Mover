@@ -17,12 +17,12 @@ class FileMover():
                 self.master.minsize(400,150)
                 self.master.maxsize(400,150)
                 self.master.title("File Mover 2.0")
-                self.master.var = StringVar()
-                self.master.var1 = StringVar()
+                self.src = StringVar()
+                self.dst = StringVar()
                 FileMover_gui.load_gui(self)
-               
 
-##        def main():
+
+        ##        def main():
 ##                src = os.path.join('C:',os.sep, 'Users', 'jrdnm', 'DevelopmentProjects', 'TechAcademy_Python', 'Item 59-63 Drills', 'FileMover Program(61)', 'NeworModified')
 ##                dst = os.path.join('C:',os.sep, 'Users', 'jrdnm', 'DevelopmentProjects', 'TechAcademy_Python', 'Item 59-63 Drills', 'FileMover Program(61)', 'Destination')
 ##                FileMover_functions.moveFiles(src,dst)

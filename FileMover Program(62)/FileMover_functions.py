@@ -12,7 +12,7 @@ from tkinter import *
 
 #Moving Files
 
-def neworold(self, fullpath):
+def neworold(fullpath):
         fileAge = os.path.getmtime(fullpath)
         Cutoff = time.time() - 86400
         if fileAge > Cutoff:
@@ -20,31 +20,34 @@ def neworold(self, fullpath):
         else:
             return False
 
-def moveFiles(self, src, dst):
+def moveFiles(self):
+    src = self.src.get()
+    dst = self.dst.get()
     allfiles = os.listdir(src)
     for files in allfiles:
         fullpath = os.path.join(src, files)
         endpath = os.path.join(dst, files)
         if files.endswith(".txt") and neworold(fullpath):
-            shutil.move(fullpath,dst)
+            shutil.move(fullpath, dst)
             print(endpath)
         else:
             pass
 
 ##GUI
 
-def sourceCall(var):
+def sourceCall(self):
     sourcepath = filedialog.askdirectory()
-    var.set(sourcepath)
+    print (type(self.src))
+    self.src.set(sourcepath)
     #return sourcepath
 
-def destinationCall(var1):
+def destinationCall(self):
     destpath = filedialog.askdirectory()
-    var1.set(destpath)
+    self.dst.set(destpath)
     #return destpath
 
 def callback(self):
-    moveFiles(self, src, dst)
+    moveFiles(self)
     
 if __name__ == "__main__":
     pass
