@@ -37,7 +37,6 @@ def moveFiles(self):
 
 def sourceCall(self):
     sourcepath = filedialog.askdirectory()
-    print (type(self.src))
     self.src.set(sourcepath)
     #return sourcepath
 
