@@ -11,6 +11,10 @@ import FileMover_functions
 
 
 def load_gui (self):
+    #Functions
+    FileMover_functions.create_db(self)
+    FileMover_functions.lastModified(self)
+    
     #Description of Tool
     description = ttk.Label(self.master, text = 'Please use Src button to select a folder to be scanned. Use the Dst button to select a folder for the new or modified files.')
     description.grid(row = 0, column = 0, columnspan = 3, pady=5)
@@ -28,7 +32,7 @@ def load_gui (self):
     sourceButton.config(command = lambda: FileMover_functions.sourceCall(self))
 
     #Destination file path field
-    destinationField = ttk.Entry(self.master, width = 50, textvariable= self.dst)
+    destinationField = ttk.Entry(self.master, width = 50, textvariable = self.dst)
     destinationField.grid(row = 2, column = 0, columnspan = 2, padx=5, pady=5)
     destinationField.insert(0, "Destination Folder")
     destinationField.state(['readonly'])
@@ -40,10 +44,14 @@ def load_gui (self):
 
     #Move Button
     moveButton = ttk.Button(self.master, text = 'Check Files')
-    moveButton.grid(row = 3, column = 1, pady=5)
+    moveButton.grid(row = 3, column = 2, pady=5)
     moveButton.config(command = lambda: FileMover_functions.callback(self))
 
-    FileMover_functions.create_db(self)
+    #Last Modified Time Label
+    modifiedTime = ttk.Label(self.master, textvariable = self.Modified)
+    modifiedTime.grid(row = 3, column = 0, pady=5)
+    
+       
     
 if __name__ == "__main__":
     pass

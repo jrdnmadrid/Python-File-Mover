@@ -62,16 +62,15 @@ def dataStorage(self):
 def sourceCall(self):
     sourcepath = filedialog.askdirectory()
     self.src.set(sourcepath)
-    #return sourcepath
 
 def destinationCall(self):
     destpath = filedialog.askdirectory()
     self.dst.set(destpath)
-    #return destpath
 
 def callback(self):
     moveFiles(self)
     dataStorage(self)
+    lastModified(self)
     
 ##Database
 
@@ -105,7 +104,15 @@ def count_records(c):
         count = c.fetchone()[0]
         return c,count
 
-
+def lastModified (self):
+        conn = sqlite3.connect('db_FileMover.db')
+        with conn:
+                c = conn.cursor()
+                c.execute("""SELECT col_timestamp FROM tbl_FileMover ORDER BY col_timestamp DESC LIMIT 1""")
+                lastRow = time.ctime(c.fetchone()[0])
+                self.Modified.set("Last Modified Time: " + lastRow)
+        conn.close()
+                
 
 if __name__ == "__main__":
     pass

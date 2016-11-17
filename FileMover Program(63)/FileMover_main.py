@@ -20,13 +20,9 @@ class FileMover():
                 self.master.title("File Mover 2.0")
                 self.src = StringVar()
                 self.dst = StringVar()
+                self.Modified = StringVar()
                 FileMover_gui.load_gui(self)
 
-
-        ##        def main():
-##                src = os.path.join('C:',os.sep, 'Users', 'jrdnm', 'DevelopmentProjects', 'TechAcademy_Python', 'Item 59-63 Drills', 'FileMover Program(61)', 'NeworModified')
-##                dst = os.path.join('C:',os.sep, 'Users', 'jrdnm', 'DevelopmentProjects', 'TechAcademy_Python', 'Item 59-63 Drills', 'FileMover Program(61)', 'Destination')
-##                FileMover_functions.moveFiles(src,dst)
 
 if __name__ == "__main__":
         root = tk.Tk()
